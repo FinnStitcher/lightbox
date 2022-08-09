@@ -7,7 +7,7 @@ const {User, Post} = require('../../models');
 router.get('/', (req, res) => {
     // not going to pull all posts with all users; too much
     User.findAll({
-        attributes: ['username', 'email']
+        attributes: ['username', 'email', 'created_at']
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['username', 'email'],
+        attributes: ['username', 'email', 'created_at'],
         include: {
             model: Post,
             attributes: ['title']
