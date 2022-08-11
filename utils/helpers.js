@@ -1,10 +1,9 @@
 const {DateTime} = require('luxon');
-// this may or may not work
 
 module.exports = {
     format_date: (date) => {
-        const luxonTest = DateTime.fromJSDate(date);
-        return luxonTest.toLocaleString(DateTime.DATE_FULL);
+        const luxonDate = DateTime.fromJSDate(date);
+        return luxonDate.toLocaleString(DateTime.DATE_FULL);
     },
     format_plural: (amount, noun) => {
         if (amount === 1) {
