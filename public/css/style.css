@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: rgb(123, 156, 186);
+    display: flex;
+    justify-content: space-between; align-items: center;
+    height: 3rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.brand {
+    display: flex;
+    width: fit-content;
+}
+
+.brand-icon {
+    background: rgb(252, 252, 186);
+    rotate: 45deg;
+    width: 20px; height: 20px;
+    margin: 0.5rem 1rem;
+}
+
+.brand-name {
+    color: rgb(252, 231, 186);
+    font-size: 1.8rem;
+}
+
+nav {
+    width: fit-content;
+}
+
+nav a {
+    color: rgb(73, 103, 132);
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+main {
+    padding: 3rem;
+}
+
+.post {
+    width: 75%;
+    border: 2px solid rgba(73, 104, 132, 0.504);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgb(235, 235, 235);
+}
+
+.post:nth-child(odd) {
+    float: left;
+    clear: left;
+}
+
+.post:nth-child(even) {
+    float: right;
+    clear: right;
+}
+
+.post-header {
+    display: flex;
+    align-items: baseline;
+}
+
+.post-header * {
+    width: fit-content;
+    margin-right: 1rem;
+}
+
+.post-header h2 {
+    font-size: 1.4rem;
+}
+
+.post-header, .post-text {
+    margin-bottom: 0.6rem;
+}
+
+.post-author a {
+    margin: 0;
+}
+
+.post a {
+    text-decoration: none;
+    color: rgb(28, 107, 173);
+}
+
+.post a:hover {
+    color: #ffffff;
+    transition: 0.2s ease-in-out;
+}

@@ -1,9 +1,9 @@
 {{#each posts as |p|}}
-    <article>
+    <article class="post">
         <div class="post-header">
             <h2 class="post-title">{{p.title}}</h2>
-            <span class="post-author">{{p.user.username}}</span>
-            <span class="post-timestamp">{{p.created_at}}</span>
+            <span class="post-author"><a href="/users/{{p.user.id}}">{{p.user.username}}</a></span>
+            <span class="post-timestamp">{{format_date p.created_at}}</span>
         </div>
 
         <div class="post-text">
@@ -11,7 +11,9 @@
         </div>
 
         <div class="post-footer">
-            {{p.comments.length}} comment(s)
+            <a href="/posts/{{p.id}}">
+                {{p.comments.length}} {{format_plural comments.length "comment"}}
+            </a>
         </div>
     </article>
 {{/each}}
