@@ -34,4 +34,12 @@ router.get('/login', (req, res) => {
     }
 });
 
+router.get('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('logout');
+    } else {
+        res.render('auth-redirect');
+    }
+});
+
 module.exports = router;
