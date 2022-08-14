@@ -48,11 +48,76 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbUserData => {
+        // log the new user in
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+
+            res.json(dbUserData);
+        })
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+// delete
+router.delete('/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({message: 'No user with that ID was found.'});
+        } else {
+            res.json(dbUserData);
+        };
+    })
+});
+
+// login
+router.post('/login', (req, res) => {
+    // check if this user actually exists
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({message: 'No user with that username was found.'});
+        } else {
+            // compare encryped and unencrypted passwords
+            const validPassword = dbUserData.checkPassword(req.body.password);
+
+            if (!validPassword) {
+                res.status(400).json({message: 'Password is incorrect.'});
+            } else {
+                // log user in
+                req.session.save(() => {
+                    req.session.user_id = dbUserData.id;
+                    req.session.username = dbUserData.username;
+                    req.session.loggedIn = true;
+
+                    res.json({
+                        user: dbUserData,
+                        message: 'You are now logged in.'
+                    });
+                });
+            }
+        }
+    })
+    .catch(err => {
+        if (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    })
 });
 
 module.exports = router;
