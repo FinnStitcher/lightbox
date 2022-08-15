@@ -27,10 +27,9 @@ router.get('/', (req, res) => {
 
 // post
 router.post('/', (req, res) => {
-    // again, will need to change this to req.session.user_id
     Comment.create({
         comment_text: req.body.comment_text,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         post_id: req.body.post_id
     })
     .then(dbCommentData => res.json(dbCommentData))
