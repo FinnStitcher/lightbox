@@ -15,9 +15,12 @@
         </div>
         <nav>
             <a href="/">home</a>
+            {{#if loggedIn}}
             <a href="/dashboard">dashboard</a>
-            <a href="/login">log in</a>
             <a href="/logout">logout</a>
+            {{else}}
+            <a href="/login">log in</a>
+            {{/if}}
         </nav>
     </header>
 
