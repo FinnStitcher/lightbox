@@ -14,9 +14,9 @@ async function loginHandler(event) {
         });
         
         if (response.ok) {
-            console.log(response);
+            redirectHandler();
         } else {
-            console.log(response);
+            window.alert(response.statusText);
         }
     }
 };
@@ -38,11 +38,19 @@ async function signupHandler(event) {
         });
         
         if (response.ok) {
-            console.log(response);
+            redirectHandler();
         } else {
-            console.log(response);
+            window.alert(response.statusText);
         }
     }
+};
+
+function redirectHandler() {
+    window.alert("You are now logged in. Redirecting to homepage...");
+
+    setTimeout(() => {
+        document.location.replace('/');
+    }, 3000);
 };
 
 document.querySelector('#login').addEventListener("submit", loginHandler);

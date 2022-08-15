@@ -27,21 +27,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('login-redirect', { loggedIn: req.session.loggedIn });
-    } else {
-        res.render('login', { loggedIn: req.session.loggedIn });
-    }
+    res.render('login', { loggedIn: req.session.loggedIn });
 });
 
 // if user is logged in, send them to the logout page
 // else, send them to the "you need to be logged in" page
 router.get('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('logout', { loggedIn: req.session.loggedIn });
-    } else {
-        res.render('auth-redirect', { loggedIn: req.session.loggedIn });
-    }
+    res.render('logout', { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
