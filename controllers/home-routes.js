@@ -26,6 +26,42 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/posts/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'text', 'created_at'],
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'username']
+            },
+            {
+                model: Comment,
+                attributes: ['comment_text', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['id', 'username']
+                }
+            }
+        ]
+    })
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({message: 'No post with that ID was found.'});
+        } else {
+            const post = dbPostData.get({plain: true});
+
+            res.render('single-post', {post, loggedIn: req.session.loggedIn});
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
 router.get('/login', (req, res) => {
     res.render('login', { loggedIn: req.session.loggedIn });
 });

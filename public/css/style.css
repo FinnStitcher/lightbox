@@ -52,10 +52,8 @@ main {
 .post {
     width: 75%;
     border: 2px solid rgba(73, 104, 132, 0.504);
-    border-radius: 10px;
     margin-bottom: 2rem;
     padding: 1rem;
-    background: rgb(235, 235, 235);
 }
 
 .post:nth-child(odd) {

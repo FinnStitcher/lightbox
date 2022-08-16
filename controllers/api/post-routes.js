@@ -36,15 +36,15 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: 'username'
+                attributes: ['username', 'id']
             },
             {
                 model: Comment,
                 attributes: ['comment_text', 'created_at'],
-                include: [{
+                include: {
                     model: User,
-                    attributes: 'username'
-                }]
+                    attributes: ['username', 'id']
+                }
             }
         ]
     })
