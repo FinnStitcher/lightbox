@@ -1,5 +1,5 @@
 {{#with post}}
-    <section class='post'>
+    <section class='post no-float'>
         <div class='post-header'>
             <h2 class='post-title'>{{title}}</h2>
 
@@ -15,20 +15,20 @@
 {{/with}}
 
 {{#if loggedIn}}
-    <form id="comment-form">
+    <form id="comment-form" class="comment-form flex flex-col">
         <h3 class='form-title'>Leave a comment?</h3>
 
-        <input type='textarea' id='comment_text' placeholder='Comment text...' />
+        <textarea id='comment_text' placeholder='Comment text...'></textarea>
 
         <button type="submit">Submit</button>
     </form>
 {{/if}}
 
 {{#with post}}
-    <section class='comments'>
+    <section class='comment-section'>
         {{#if comments.length}}
             {{#each comments as |c|}}
-                <div>
+                <div class="comment">
                     <p class='comment-header'>
                         {{c.user.username}}
                         said on
