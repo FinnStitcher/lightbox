@@ -1,46 +1,51 @@
 {{#with post}}
-	<section class='post-fullpage'>
-		<div class='post-header'>
-			<h2 class='post-title'>{{title}}</h2>
-			<span class='post-author'><a
-					href='/users/{{user.id}}'
-				>{{user.username}}</a></span>
-			<span>{{format_date created_at}}</span>
-		</div>
+    <section class='post'>
+        <div class='post-header'>
+            <h2 class='post-title'>{{title}}</h2>
 
-		<div class='post-text'>
-			{{text}}
-		</div>
-	</section>
+            <span class='post-author'><a href='/users/{{user.id}}'>{{user.username}}</a></span>
 
-	{{#if loggedIn}}
-		<form>
-			<h3 class='form-title'>Leave a comment?</h3>
+            <span>{{format_date created_at}}</span>
+        </div>
 
-			<input
-				type='textarea'
-				id='comment_text'
-				placeholder='Comment text...'
-			/>
-		</form>
-	{{/if}}
-
-	<section class='comments'>
-		{{#if comments.length}}
-			{{#each comments as |c|}}
-				<div>
-					<p class='comment-header'>
-						{{c.user.username}}
-						said at
-						{{format_date created_at}}:
-					</p>
-					<p class='comment-body'>
-						{{c.comment_text}}
-					</p>
-				</div>
-			{{/each}}
-		{{else}}
-			<p>There are no comments on this post.</p>
-		{{/if}}
-	</section>
+        <div class='post-text'>
+            {{text}}
+        </div>
+    </section>
 {{/with}}
+
+{{#if loggedIn}}
+    <form id="comment-form">
+        <h3 class='form-title'>Leave a comment?</h3>
+
+        <input type='textarea' id='comment_text' placeholder='Comment text...' />
+
+        <button type="submit">Submit</button>
+    </form>
+{{/if}}
+
+{{#with post}}
+    <section class='comments'>
+        {{#if comments.length}}
+            {{#each comments as |c|}}
+                <div>
+                    <p class='comment-header'>
+                        {{c.user.username}}
+                        said at
+                        {{format_date created_at}}:
+                    </p>
+
+                    <p class='comment-body'>
+                        {{c.comment_text}}
+                    </p>
+                </div>
+            {{/each}}
+        {{else}}
+            <p>There are no comments on this post.</p>
+        {{/if}}
+    </section>
+{{/with}}
+
+{{#if loggedIn}}
+    <script src="/js/comment.js"></script>
+{{/if}}
