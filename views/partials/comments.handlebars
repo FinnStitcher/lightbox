@@ -1,0 +1,19 @@
+<section class='comment-section'>
+    {{#if this.length}}
+        {{#each this as |c|}}
+            <div class="comment">
+                <p class='comment-header'>
+                    {{c.user.username}}
+                    said on
+                    {{format_date created_at}}:
+                </p>
+
+                <p class='comment-body'>
+                    {{c.comment_text}}
+                </p>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>There are no comments on this post.</p>
+    {{/if}}
+</section>
