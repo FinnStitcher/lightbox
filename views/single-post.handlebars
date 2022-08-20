@@ -1,5 +1,7 @@
+{{!-- not using the post-in-list partial because comments are displayed here --}}
+
 {{#with post}}
-    <section class='post no-float'>
+    <section class='post'>
         <div class='post-header'>
             <h2 class='post-title'>{{title}}</h2>
 
@@ -28,5 +30,5 @@
 
 
 {{#with post}}
-    {{> comments comments}}
+    {{> comment-section comments}}
 {{/with}}
