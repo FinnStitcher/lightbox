@@ -1,0 +1,25 @@
+{{#with user}}
+    <h2>Welcome to your dashboard, {{username}}.</h2>
+
+    <a class="link-btn" href="/create-new">Make a new post</a>
+
+    <hr>
+
+    <h2>Your Posts</h2>
+
+    {{#if posts.length}}
+        {{> post-list posts}}
+    {{else}}
+        <p>You haven't made any posts.</p>
+    {{/if}}
+
+    {{!-- <hr>
+
+    <h2>Your Comments</h2>
+
+    {{#if comments.length}}
+        {{> comments comments}}
+    {{else}}
+        <p>You haven't made any comments.</p>
+    {{/if}} --}}
+{{/with}}

@@ -30,5 +30,11 @@
 
 
 {{#with post}}
-    {{> comment-section comments}}
+    <section class='comment-section'>
+        {{#if comments.length}}
+            {{> comments comments}}
+        {{else}}
+            <p>There are no comments on this post.</p>
+        {{/if}}
+    </section>
 {{/with}}

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {Post, User, Comment} = require('../models');
+const checkAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -70,6 +71,34 @@ router.get('/login', (req, res) => {
 // else, send them to the "you need to be logged in" page
 router.get('/logout', (req, res) => {
     res.render('logout', { loggedIn: req.session.loggedIn });
+});
+
+router.get('/dashboard', checkAuth, (req, res) => {
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: ['username'],
+        include: [
+            {
+                model: Post,
+                attributes: ['id', 'title', 'text', 'created_at'],
+                include: {
+                    model: Comment,
+                    attributes: ['id']
+                }
+            },
+            {
+                model: Comment,
+                attributes: ['created_at', 'comment_text']
+            }
+        ]
+    })
+    .then(dbUserData => {
+        const user = dbUserData.get({plain: true});
+
+        res.render('dashboard', { user, loggedIn: req.session.loggedIn });
+    });
 });
 
 module.exports = router;

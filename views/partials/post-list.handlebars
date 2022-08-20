@@ -3,8 +3,13 @@
         <div class="post-header">
             <h2 class="post-title">{{p.title}}</h2>
 
-            <span class="post-author"><a href="/users/{{p.user.id}}">{{p.user.username}}</a></span>
-            
+            <span class="post-author">
+                {{#if p.user.username}}
+                    <a href="/users/{{p.user.id}}">{{c.user.username}}</a>
+                {{else}}
+                    You
+                {{/if}}
+            </span>
             <span>{{format_date p.created_at}}</span>
         </div>
 
