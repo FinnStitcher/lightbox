@@ -105,4 +105,8 @@ router.get('/dashboard', checkAuth, (req, res) => {
     });
 });
 
+router.get('/create', (req, res) => {
+    res.render('new-post', { loggedIn: req.session.loggedIn });
+});
+
 module.exports = router;
