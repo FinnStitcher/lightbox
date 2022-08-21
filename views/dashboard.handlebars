@@ -17,16 +17,20 @@
                 <p>You haven't made any posts.</p>
             {{/if}}
         </div>
-
     </section>
 
-    {{!-- <hr>
+    <hr>
 
-    <h2>Your Comments</h2>
+    <section class="flex flex-col">
+        <h2>Your Posts</h2>
 
-    {{#if comments.length}}
-        {{> comments comments}}
-    {{else}}
-        <p>You haven't made any comments.</p>
-    {{/if}} --}}
+        <div class="flex flex-col comment-section">
+            {{#if comments.length}}
+                {{> comments comments}}
+            {{else}}
+                <p>You haven't made any comments.</p>
+            {{/if}}
+        </div>
+    </section>
+
 {{/with}}

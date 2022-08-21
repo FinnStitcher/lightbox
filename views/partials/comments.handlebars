@@ -1,6 +1,12 @@
 {{#each this as |c|}}
     <div class="comment">
-        <p class='comment-header'>
+        {{#if c.post.title}}
+            <p class="comment-post-title">
+                <a href="/post/{{c.post.id}}">"{{c.post.title}}"</a>
+            </p>
+        {{/if}}
+        
+        <p>
             {{#if c.user.username}}
                 {{c.user.username}}
             {{else}}

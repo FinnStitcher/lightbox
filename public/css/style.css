@@ -144,8 +144,16 @@ main {
 }
 
 .comment {
-    padding: 0.6rem 0;
+    padding: 0.8rem 0;
     width: 80ch;
+}
+
+.comment-section {
+    gap: 0;
+}
+
+.comment *:not(:last-child) {
+    margin-bottom: 0.5rem;
 }
 
 .comment:not(:last-child) {
@@ -158,6 +166,11 @@ main {
 
 .comment:last-child {
     padding-bottom: 0;
+}
+
+.comment-post-title a {
+    font-weight: bold;
+    color: black;
 }
 
 .dash-intro {
