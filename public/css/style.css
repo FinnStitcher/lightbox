@@ -7,14 +7,12 @@
 
 header {
     background: rgb(123, 156, 186);
-    display: flex;
     justify-content: space-between; align-items: center;
     height: 3rem;
     font-family: 'Raleway', sans-serif;
 }
 
 .brand {
-    display: flex;
     width: fit-content;
 }
 
@@ -37,21 +35,24 @@ nav {
 nav a {
     color: rgb(73, 103, 132);
     font-weight: bold;
-    text-decoration: none;
     margin: 0 1rem;
 }
 
 .flex {
     display: flex;
+    gap: 2rem 0;
 }
 
 .flex-col {
     flex-direction: column;
 }
 
+a {
+    text-decoration: none;
+}
+
 main {
     padding: 3rem;
-    gap: 2rem 0;
 }
 
 .post {
@@ -91,7 +92,6 @@ main {
 }
 
 .post a {
-    text-decoration: none;
     color: rgb(28, 107, 173);
 }
 
@@ -158,4 +158,24 @@ main {
 
 .comment:last-child {
     padding-bottom: 0;
+}
+
+.dash-intro {
+    text-align: center;
+}
+
+.link-btn {
+    font-size: 1.25rem;
+    background: rgb(252, 231, 186);
+    color: rgb(201, 161, 73);
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+
+.link-btn:active {
+    color: white;
+    background: rgb(201, 161, 73);
 }

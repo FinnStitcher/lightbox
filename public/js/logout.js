@@ -7,7 +7,7 @@ fetch('/api/users/logout', {
 .then(() => {
     setTimeout(() => {
         document.location.replace('/');
-    }, 3000);
+    }, 1000);
 })
 .catch(err => {
     console.log(err);

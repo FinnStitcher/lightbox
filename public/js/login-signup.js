@@ -46,11 +46,9 @@ async function signupHandler(event) {
 };
 
 function redirectHandler() {
-    window.alert("You are now logged in. Redirecting to homepage...");
+    window.alert("You are now logged in.");
 
-    setTimeout(() => {
-        document.location.replace('/');
-    }, 3000);
+    document.location.replace('/dashboard');
 };
 
 document.querySelector('#login').addEventListener("submit", loginHandler);
