@@ -83,6 +83,9 @@ router.get('/dashboard', checkAuth, (req, res) => {
             {
                 model: Post,
                 attributes: ['id', 'title', 'text', 'created_at'],
+                order: [
+                    ['created_at', 'DESC']
+                ],
                 include: {
                     model: Comment,
                     attributes: ['id']
