@@ -11,6 +11,14 @@
         <div class='post-text'>
             {{text}}
         </div>
+
+        {{#if belongsToUser}}
+            <div class="post-action-links">
+                <a class="link-btn" href="/edit/{{id}}">Edit</a>
+
+                <button class="link-btn" id="delete-btn" type="button">Delete</button>
+            </div>
+        {{/if}}
     </section>
 {{/with}}
 

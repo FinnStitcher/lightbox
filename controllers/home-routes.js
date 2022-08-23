@@ -54,6 +54,9 @@ router.get('/posts/:id', (req, res) => {
         } else {
             const post = dbPostData.get({plain: true});
 
+            // adding a value that identifies if the user made this post
+            post.belongsToUser = post.user.id === req.session.user_id;
+
             res.render('single-post', {post, loggedIn: req.session.loggedIn});
         }
     })

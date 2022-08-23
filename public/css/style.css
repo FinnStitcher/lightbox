@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -45,6 +46,10 @@ nav a {
 
 .flex-col {
     flex-direction: column;
+}
+
+button {
+    font-family: serif;
 }
 
 a {
@@ -185,17 +190,28 @@ main {
     text-align: center;
 }
 
-.link-btn {
-    font-size: 1.25rem;
+.dash-btn {
+    display: block;
     background: rgb(252, 231, 186);
     color: rgb(201, 161, 73);
+    font-size: 1.25rem;
     font-weight: bold;
     padding: 5px;
-    display: block;
     width: 200px;
 }
 
-.link-btn:active {
+.dash-btn:active {
     color: white;
     background: rgb(201, 161, 73);
+}
+
+a.link-btn, button.link-btn {
+    display: inline-block;
+    background: rgb(252, 231, 186);
+    color: rgb(201, 161, 73);
+    font-size: 16px;
+    text-align: left;
+    padding: 5px;
+    width: 60px;
+    border: none;
 }
