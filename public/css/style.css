@@ -190,7 +190,7 @@ main {
     text-align: center;
 }
 
-.dash-btn {
+.link-btn-large {
     display: block;
     background: rgb(252, 231, 186);
     color: rgb(201, 161, 73);
@@ -200,7 +200,7 @@ main {
     width: 200px;
 }
 
-.dash-btn:active {
+.link-btn-large:active {
     color: white;
     background: rgb(201, 161, 73);
 }

@@ -1,19 +1,19 @@
 <div>
-    <h2 class="text-center">Make a new post</h2>
+    <h2 class="text-center">Edit post</h2>
 
     <form id="post-form" class="post-form flex flex-col margin-auto">
         <label for="post-title">Title:</label>
-        <input type="text" id="post-title" />
+        <input type="text" id="post-title" value="{{post.title}}" />
 
         <label for="post-text">Post body:</label>
-        <textarea id="post-text"></textarea>
+        <textarea id="post-text">{{post.text}}</textarea>
 
         <button type="submit">Submit</button>
     </form>
 </div>
 
 <div class="text-center margin-auto">
-    <a class="link-btn-large" href="/dashboard">Return to dashboard</a>
+    <a class="link-btn-large" href="/posts/{{post.id}}">Return to post</a>
 </div>
 
-<script src="/js/create-post.js"></script>
+<script src="/js/edit-post.js"></script>
