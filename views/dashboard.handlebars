@@ -12,7 +12,9 @@
 
         <div class="flex flex-col">
             {{#if posts.length}}
-                {{> post-list posts}}
+                {{#each posts as |p|}}
+                    {{> post p}}
+                {{/each}}
             {{else}}
                 <p>You haven't made any posts.</p>
             {{/if}}
