@@ -50,6 +50,14 @@ nav a {
 
 button {
     font-family: serif;
+    padding: 5px;
+    background: white;
+    border: solid 1px rgb(28, 107, 173);
+    border-radius: 10px;
+}
+
+button:hover {
+    background: rgb(180, 206, 231);
 }
 
 a {
@@ -210,7 +218,7 @@ a.link-btn, button.link-btn {
     background: rgb(252, 231, 186);
     color: rgb(201, 161, 73);
     font-size: 16px;
-    text-align: left;
+    text-align: center;
     padding: 5px;
     width: 60px;
     border: none;
